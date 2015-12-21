@@ -11,7 +11,6 @@
       <table>
         <tr>
           <th>Nom</th>
-          <th>Prenom</th>
           <th>Action</th>
         </tr>
 
