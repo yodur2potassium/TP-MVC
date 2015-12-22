@@ -13,7 +13,7 @@ class DirectorController extends Controller{
     // First argument : the view ;
     // Second argument : associative array. key is the name
     // of the variable, value is it's value
-    $this->render('directorList', array(
+    $this->render('directors/list', array(
       'directors' => $directors
     ));
   }
@@ -23,7 +23,7 @@ class DirectorController extends Controller{
     if(isset($_GET["id"])){
       $dao = new DirectorDAO();
       $director = $dao->find($_GET["id"]);
-      $this->render("directorDetails", array("director" => $director));
+      $this->render("directors/details", array("director" => $director));
 
     }
   }
@@ -36,6 +36,7 @@ class DirectorController extends Controller{
     }
     header("Location: index.php?ctrl=director&act=index");
   }
+
   public function cloneAction()
   {
     if(isset($_GET["id"])){
