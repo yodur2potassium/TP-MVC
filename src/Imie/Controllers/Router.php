@@ -25,6 +25,7 @@ class Router{
     if(!$flag){
       $controller = new DefaultController();
       $controller->indexAction();
+      echo "Bump";
     }
 
   }

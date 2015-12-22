@@ -48,21 +48,44 @@ class DirectorController extends Controller{
     }
     header("Location: index.php?ctrl=director&act=index");
   }
+
   public function formAction()
   {
-    $this->render("directors/form", array("action" => "insert",
+    $this->render("directors/form", array("action" => "process",
     "director" => new DirectorDTO));
   }
 
-  public function insertAction()
+  public function modFormAction()
+  {
+    if(isset($_GET["id"])){
+      $dao = new DirectorDAO;
+      $id = intval($_GET["id"]);
+      $director = $dao->find($id);
+      $this->render("directors/form", array("action" => "process",
+      "director" => $director));
+    }else{
+      header("Location: index.php?ctrl=director&act=index");
+    }
+  }
+
+  public function processAction()
   {
     if(isset($_POST["name"])&& !empty($_POST["name"])){
       $d =new DirectorDTO;
       $d->setName(strip_tags($_POST["name"]));
       $dao = new DirectorDAO;
-      $dao->insert($d);
-    }
+      if(-1 === intval($_POST["id"])){
+        $dao->insert($d);
+        $_SESSION["success"]= $d->getName()." à été ajouté à la BDD.";
+      }else{
+        $dao->update($d);
+        $_SESSION["success"]= $d->getName()." à été modifié";
+      }
 
+    }else{
+      $_SESSION["error"]= "Veuillez entrer un Nom, svp.";
+    }
+    header("Location: index.php?ctrl=director&act=form");
   }
 }
 ;
