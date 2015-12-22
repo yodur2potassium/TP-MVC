@@ -44,8 +44,8 @@ class DirectorDTO{
 
   // Ok to hydrate with SQL data
   public function hydrateSQL($res){
-    $this->setId($res['nom_realisateur']);
-
+    $this->setId($res['realisateur_id']);
+    $this->setName($res["nom_realisateur"]);
     return $this;
   }
 

@@ -13,11 +13,19 @@ class DirectorController extends Controller{
     // First argument : the view ;
     // Second argument : associative array. key is the name
     // of the variable, value is it's value
-    $this->render('directors', array(
+    $this->render('directorList', array(
       'directors' => $directors
     ));
   }
 
+  public function detailsAction()
+  {
+    if(isset($_POST["id"])){
+      $dao = new DirectorDAO();
+      $director = $dao->find($_POST["id"]);
+      $this->render("directorDetails", array("director" => $director));
+    }
+  }
 }
 
 

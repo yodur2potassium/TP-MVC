@@ -10,14 +10,14 @@
       <a href="index.php?ctrl=director&act=form">Insérer un réalisateur</a>
       <table>
         <tr>
-          <th>Nom</th>
-          <th>Action</th>
+          <th>Id</th>
+          <th>Nom Réalisateur</th>
         </tr>
 
         <?php foreach ($directors as $director): ?>
           <tr>
-            <td><?= $director->getName() ?></td>
             <td><?= $director->getId() ?></td>
+            <td><?= $director->getName() ?></td>
             <td>
               <a href="index.php?ctrl=director&act=details&id=<?= $director->getId() ?>">Détails</a>
               <a href="index.php?ctrl=director&act=delete&id=<?= $director->getId() ?>">X</a>
