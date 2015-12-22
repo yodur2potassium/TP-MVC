@@ -1,6 +1,8 @@
 <?php
 namespace Imie\Controllers;
 
+session_start();
+
 use Imie\Models\DirectorDAO;
 use Imie\Models\DirectorDTO;
 
@@ -46,16 +48,21 @@ class DirectorController extends Controller{
     }
     header("Location: index.php?ctrl=director&act=index");
   }
+  public function formAction()
+  {
+    $this->render("directors/form", array("action" => "insert",
+    "director" => new DirectorDTO));
+  }
+
+  public function insertAction()
+  {
+    if(isset($_POST["name"])&& !empty($_POST["name"])){
+      $d =new DirectorDTO;
+      $d->setName(strip_tags($_POST["name"]));
+      $dao = new DirectorDAO;
+      $dao->insert($d);
+    }
+
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
 ;
