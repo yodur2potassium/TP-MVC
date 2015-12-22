@@ -33,8 +33,17 @@ class DirectorController extends Controller{
     if(isset($_GET["id"])){
       $dao = new DirectorDAO();
       $dao->delete($_GET["id"]);
-      header("Location: index.php?ctrl=director&act=index");
     }
+    header("Location: index.php?ctrl=director&act=index");
+  }
+  public function cloneAction()
+  {
+    if(isset($_GET["id"])){
+      $dao = new DirectorDAO();
+      $director =$dao->find($_GET["id"]);
+      $dao->insert($director);
+    }
+    header("Location: index.php?ctrl=director&act=index");
   }
 }
 
