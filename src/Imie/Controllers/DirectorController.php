@@ -20,10 +20,20 @@ class DirectorController extends Controller{
 
   public function detailsAction()
   {
-    if(isset($_POST["id"])){
+    if(isset($_GET["id"])){
       $dao = new DirectorDAO();
-      $director = $dao->find($_POST["id"]);
+      $director = $dao->find($_GET["id"]);
       $this->render("directorDetails", array("director" => $director));
+
+    }
+  }
+
+  public function deleteAction()
+  {
+    if(isset($_GET["id"])){
+      $dao = new DirectorDAO();
+      $dao->delete($_GET["id"]);
+      header("Location: index.php?ctrl=director&act=index");
     }
   }
 }
