@@ -1,7 +1,6 @@
 <?php
 namespace Imie\Models;
 
-use DateTime;
 
 class DirectorDTO{
   private $id = -1; // int

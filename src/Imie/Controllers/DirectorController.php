@@ -85,8 +85,8 @@ class DirectorController extends Controller{
 
     }else{
       $_SESSION["error"]= "Veuillez entrer un Nom, svp.";
+      header("Location: index.php?ctrl=director&act=form");
     }
-    header("Location: index.php?ctrl=director&act=form");
   }
 }
 ;

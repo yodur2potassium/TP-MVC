@@ -91,7 +91,7 @@ class DirectorDAO{
 
     $stmt->execute();
     // get All
-    $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // parse each $results (it's an array)
     foreach ($results as $res) {

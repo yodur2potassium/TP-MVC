@@ -7,4 +7,5 @@
     }
   }
   ?>
+  <a href="index.php?ctrl=default&act=index">Retour a l'accueil</a>
 </header>
