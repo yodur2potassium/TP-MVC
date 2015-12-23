@@ -5,6 +5,8 @@
     <title>Détails Réal</title>
   </head>
   <body>
+    <?php include "header.php"; ?>
+
     <h2>Détails:</h2>
     Nom du réalisateur: <?= $director->getName() ?></br>
     Id: <?= $director->getId() ?></br>

@@ -5,6 +5,7 @@
     <title>Réalisateurs</title>
   </head>
   <body>
+    <?php include "header.php"; ?>
     <main>
       <h1>Liste des Réalisateurs</h1>
       <a href="index.php?ctrl=director&act=form">Insérer un réalisateur</a>

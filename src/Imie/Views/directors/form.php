@@ -5,7 +5,7 @@
     <title>Formulaire</title>
   </head>
   <body>
-    <?php var_dump($director,$action) ?>
+    <?php include "header.php"; ?>
     <h3></h3>
     <form class="" action="index.php?ctrl=director&act=<?= $action ?>" method="post">
       <fieldset><legend>Ajout/Modif de Réal:</legend>

@@ -72,8 +72,7 @@ class DirectorController extends Controller{
   {
     if(isset($_POST["name"])&& !empty($_POST["name"])){
       $d =new DirectorDTO;
-      $d->setName(strip_tags($_POST["name"]))
-        ->setId(intval($_POST["id"]));
+      $d->setName(strip_tags($_POST["name"]))->setId(intval($_POST["id"]));
       $dao = new DirectorDAO;
       if(-1 === intval($_POST["id"])){
         $dao->insert($d);
@@ -81,6 +80,7 @@ class DirectorController extends Controller{
       }else{
         $dao->update($d);
         $_SESSION["success"]= $d->getName()." à été modifié";
+        header("Location: index.php?ctrl=director&act=index");
       }
 
     }else{
