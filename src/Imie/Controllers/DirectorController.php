@@ -72,7 +72,8 @@ class DirectorController extends Controller{
   {
     if(isset($_POST["name"])&& !empty($_POST["name"])){
       $d =new DirectorDTO;
-      $d->setName(strip_tags($_POST["name"]));
+      $d->setName(strip_tags($_POST["name"]))
+        ->setId(intval($_POST["id"]));
       $dao = new DirectorDAO;
       if(-1 === intval($_POST["id"])){
         $dao->insert($d);

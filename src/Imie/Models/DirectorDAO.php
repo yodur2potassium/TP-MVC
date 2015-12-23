@@ -29,7 +29,6 @@ class DirectorDAO{
   public function update(DirectorDTO $p){
     // if id = -1, there is nothing to do
     if (-1 === $p->getid()) return;
-
     $rqt = "UPDATE realisateur SET nom_realisateur = ? WHERE realisateur_id = ?;";
     $stmt = $this->pdo->prepare($rqt);
     // bind values to the request
